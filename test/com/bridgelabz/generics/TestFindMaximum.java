@@ -33,12 +33,30 @@ public class TestFindMaximum {
 	@Test
 	public void testMaxFloatSecondPosition() {
 		Double expected = 9.78;
-		assertEquals(expected, FindMaximum.findMaximumFloat(-5.6, 9.78, 2.35)); // Float at first position
+		assertEquals(expected, FindMaximum.findMaximumFloat(-5.6, 9.78, 2.35)); // Float at second position
 	}
 
 	@Test
 	public void testMaxFloatThirdPosition() {
 		Double expected = 9.78;
-		assertEquals(expected, FindMaximum.findMaximumFloat(-5.6, 2.35, 9.78)); // Float at first position
+		assertEquals(expected, FindMaximum.findMaximumFloat(-5.6, 2.35, 9.78)); // Float at third position
+	}
+
+	@Test
+	public void testMaxStirngFirstPosition() {
+		String expected = "Peach";
+		assertEquals(expected, FindMaximum.findMaximumString("Peach", "Apple", "Banana")); // String at first position
+	}
+	
+	@Test
+	public void testMaxStirngSecondPosition() {
+		String expected = "Peach";
+		assertEquals(expected, FindMaximum.findMaximumString("Apple", "Peach", "Banana")); // String at second position
+	}
+	
+	@Test
+	public void testMaxStirngThirdPosition() {
+		String expected = "Peach";
+		assertEquals(expected, FindMaximum.findMaximumString("Apple", "Banana", "Peach")); // String at third position
 	}
 }

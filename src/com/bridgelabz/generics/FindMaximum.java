@@ -24,6 +24,16 @@ public class FindMaximum {
 		return max;
 	}
 
+	// Method to find highest string
+	public static String findMaximumString(String firstStr, String secondStr, String thirdStr) {
+		String max = firstStr;
+		if (secondStr.compareTo(max) > 0)
+			max = secondStr;
+		if (thirdStr.compareTo(max) > 0)
+			max = thirdStr;
+		return max;
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// Welcome Message
@@ -44,10 +54,21 @@ public class FindMaximum {
 		double secondFloatNum = sc.nextDouble();
 		System.out.println("Enter third float number");
 		double thirdFloatNum = sc.nextDouble();
+
+		// Input for strings
+		System.out.println("Enter first string");
+		sc.nextLine();
+		String firstString = sc.nextLine();
+		System.out.println("Enter second string");
+		String secondString = sc.nextLine();
+		System.out.println("Enter third string");
+		String thirdString = sc.nextLine();
+
 		System.out.println("The maximum number among entered integers is "
 				+ findMaximumInteger(firstIntNum, secondIntNum, thirdIntNum));
 		System.out.println("The maximum number among entered float numbers is "
 				+ findMaximumFloat(firstFloatNum, secondFloatNum, thirdFloatNum));
+		System.out.println("The highest string is  " + findMaximumString(firstString, secondString, thirdString));
 		sc.close();
 	}
 }
