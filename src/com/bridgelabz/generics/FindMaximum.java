@@ -2,15 +2,25 @@ package com.bridgelabz.generics;
 
 import java.util.Scanner;
 
-public class FindMaximum {
+public class FindMaximum <E extends Comparable<E>>{
+	
+	private E first, second, third;
 
-	// Method to find maximum value among integers
-	public static <E extends Comparable <E>> E findMaximum(E firstNum, E secondNum, E thirdNum) {
-		E max = firstNum;
-		if (secondNum.compareTo(max) > 0)
-			max = secondNum;
-		if (thirdNum.compareTo(max) > 0)
-			max = thirdNum;
+	//Construcor
+	public FindMaximum(E first, E second, E third) {
+		super();
+		this.first = first;
+		this.second = second;
+		this.third = third;
+	}
+	
+	// Generic method to find maximum value
+	public  E findMaximum() {
+		E max = first;
+		if (second.compareTo(max) > 0)
+			max = second;
+		if (third.compareTo(max) > 0)
+			max = third;
 		return max;
 	}
 
@@ -27,6 +37,7 @@ public class FindMaximum {
 		int secondIntNum = sc.nextInt();
 		System.out.println("Enter third integer number");
 		int thirdIntNum = sc.nextInt();
+		FindMaximum<Integer> integerObj = new FindMaximum<Integer>(firstIntNum, secondIntNum, thirdIntNum);
 
 		// Input for float values
 		System.out.println("Enter first float number");
@@ -35,6 +46,7 @@ public class FindMaximum {
 		double secondFloatNum = sc.nextDouble();
 		System.out.println("Enter third float number");
 		double thirdFloatNum = sc.nextDouble();
+		FindMaximum<Double> doubleObj = new FindMaximum<Double>(firstFloatNum, secondFloatNum, thirdFloatNum);
 
 		// Input for strings
 		System.out.println("Enter first string");
@@ -44,12 +56,13 @@ public class FindMaximum {
 		String secondString = sc.nextLine();
 		System.out.println("Enter third string");
 		String thirdString = sc.nextLine();
-
+		FindMaximum<String> stringObj = new FindMaximum<String>(firstString, secondString, thirdString);
+		
 		System.out.println("The maximum number among entered integers is "
-				+ findMaximum(firstIntNum, secondIntNum, thirdIntNum));
+				+ integerObj.findMaximum());
 		System.out.println("The maximum number among entered float numbers is "
-				+ findMaximum(firstFloatNum, secondFloatNum, thirdFloatNum));
-		System.out.println("The highest string is  " + findMaximum(firstString, secondString, thirdString));
+				+ doubleObj.findMaximum());
+		System.out.println("The highest string is  " + stringObj.findMaximum());
 		sc.close();
 	}
 }
