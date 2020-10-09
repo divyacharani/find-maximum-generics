@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class FindMaximum {
 
 	// Method to find maximum value among integers
-	public static Integer findMaximumInteger(Integer firstNum, Integer secondNum, Integer thirdNum) {
-		Integer max = firstNum;
+	public static <E extends Comparable <E>> E findMaximum(E firstNum, E secondNum, E thirdNum) {
+		E max = firstNum;
 		if (secondNum.compareTo(max) > 0)
 			max = secondNum;
 		if (thirdNum.compareTo(max) > 0)
@@ -14,25 +14,6 @@ public class FindMaximum {
 		return max;
 	}
 
-	// Method to find maximum value among float values
-	public static Double findMaximumFloat(Double firstNum, Double secondNum, Double thirdNum) {
-		Double max = firstNum;
-		if (secondNum.compareTo(max) > 0)
-			max = secondNum;
-		if (thirdNum.compareTo(max) > 0)
-			max = thirdNum;
-		return max;
-	}
-
-	// Method to find highest string
-	public static String findMaximumString(String firstStr, String secondStr, String thirdStr) {
-		String max = firstStr;
-		if (secondStr.compareTo(max) > 0)
-			max = secondStr;
-		if (thirdStr.compareTo(max) > 0)
-			max = thirdStr;
-		return max;
-	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -65,10 +46,10 @@ public class FindMaximum {
 		String thirdString = sc.nextLine();
 
 		System.out.println("The maximum number among entered integers is "
-				+ findMaximumInteger(firstIntNum, secondIntNum, thirdIntNum));
+				+ findMaximum(firstIntNum, secondIntNum, thirdIntNum));
 		System.out.println("The maximum number among entered float numbers is "
-				+ findMaximumFloat(firstFloatNum, secondFloatNum, thirdFloatNum));
-		System.out.println("The highest string is  " + findMaximumString(firstString, secondString, thirdString));
+				+ findMaximum(firstFloatNum, secondFloatNum, thirdFloatNum));
+		System.out.println("The highest string is  " + findMaximum(firstString, secondString, thirdString));
 		sc.close();
 	}
 }
